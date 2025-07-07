@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FoodFun</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+
+.navbar {
+  background-color: #fff;
+}
+.navbar .nav-link {
+  color: #333;
+  font-weight: 500;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+  color: orange;
+}
+
+
+/* nav.navbar {
+  position: absolute;
+  top: 30px;
+  left: 190px;
+  width: 70%;
+  background-color: transparent;
+  padding: 10px 35px;
+  z-index: 1000;
+  height:12%;
+} */
+
+nav.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: white !important;
+  padding: 15px 40px;
+  transition: background-color 0.3s ease;
+}
+
+
+nav.navbar.scrolled {
+  background-color: white !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-logo img {
+  height: 60px;
+  margin: 7px 0;
+  display:inline;
+}
+.navbar-nav{
+  gap: 20px;
+  /* display:inline; */
+}
+
+.navbar-nav .nav-link {
+  color: black;
+  font-weight: bold;
+  display:inline;
+}
+.navbar-nav .nav-link:hover {
+  color: orange;
+}
+
+
+    .hero {
+      background-image: url('assets/banner-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      text-align: center;
+      padding: 200px 20px;
+      min-height: 100vh;
+      /* FULL SCREEN HEIGHT */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top:250px;
+    }
+
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero h2 {
+      font-family: "DM Serif Display", serif;
+      font-style: italic;
+      font-size: 3.5rem;
+    }
+
+    .hero h2 span {
+      color: orange;
+    }
+
+    .welcome-section {
+      padding: 80px 0;
+    }
+
+    .welcome-section h2 {
+      font-family: "DM Serif Display", serif;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .welcome-section .welcome {
+      color: orange;
+      font-style: italic;
+    }
+
+    .welcome-section p {
+      font-size: 17px;
+      /* line-height: 1.8; */
+      color: #555;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    .welcome-section .btn {
+      background-color: orange;
+      border: 1px solid orange;
+      padding: 10px 30px;
+      font-weight: normal;
+      border-radius: 0px;
+      width: 180px;
+    }
+
+    .welcome-section .btn:hover {
+      background-color: white;
+      color: black;
+
+    }
+
+
+    .welcome-section img {
+      border-radius: 8px;
+      max-width: 100%;
+    }
+
+    .menu {
+      margin-top: 50px;
+      background-image: url(assets/veg-bg.jpg);
+      background-position: top right;
+      background-repeat: no-repeat;
+      background-size: 50vh;
+    }
+
+    .menu h3 {
+      margin-left: 100px;
+      font-family: "DM Serif Display", serif;
+      font-style: italic;
+      font-size: 3.5rem;
+    }
+
+    .menu p {
+      margin-left: 100px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-style: italic;
+      font-size: 17px;
+    }
+
+    .menu span {
+      color: orange;
+    }
+.food-card {
+  width: 100%;
+  max-width: 340px;
+  flex: 0 0 32%;
+}
+
+    .food-cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 30px;
+}
+
+
+
+    .food-card .card-img-container {
+      overflow: hidden;
+    }
+
+    .food-card .card-img-top {
+      transition: transform 0.3s ease;
+    }
+
+    .food-card:hover .card-img-top {
+      transform: scale(1.05);
+    }
+
+    .food-card .card-body {
+      transition: background-color 0.3s ease;
+      padding: 1rem;
+      /* ensure normal padding */
+      text-align: left;
+    }
+
+    .food-card:hover .card-body {
+      background-color: orange;
+      color: white;
+    }
+
+    .food-card .price {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .food-card:hover .price {
+      color: white;
+    }
+
+    .food-card .card-title {
+      font-family: "DM Serif Display", serif;
+    }
+
+    .food-card:hover {
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    }
+
+
+    .food-card .card-text {
+      font-size: 1rem;
+      margin: 0;
+      padding: 0;
+      text-align: left;
+    }
+
+    .row.g-4 {
+      justify-content: center;
+    }
+
+    .reserve {
+      background-image: url(assets/reservation-bg.jpg);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      min-height: 35vh;
+      /* Add height so the image has space */
+      padding: 100px 20px;
+      /* Add padding to create space for content */
+      color: white;
+      /* Text is readable on background */
+      text-align: center;
+      /* Center your text + button */
+      display: flex;
+      /* Center content vertically & horizontally */
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .reserve h2 {
+      font-family: "DM Serif Display", serif;
+      font-style: italic;
+      font-size: 3rem;
+
+    }
+
+    .reserve p {
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-size: 17px;
+
+    }
+
+    .reserve .btn {
+      background-color: orange;
+      color: black;
+      border: 1px solid orange;
+      border-radius: 0px;
+      font-size: 13px;
+      width: 120px;
+      height: 40px;
+    }
+
+    .reserve .btn:hover {
+      background-color: transparent;
+      color: white;
+    }
+
+    #special-dishes {
+      max-width: 1200px;
+      margin: 100px auto;
+      padding: 20px;
+    }
+
+    .special-header h2 {
+      font-size: 3rem;
+      font-weight: bold;
+      font-family: "DM Serif Display", serif;
+      text-align: center;
+    }
+
+    .special-header h2 span {
+      color: orange;
+      font-family: "DM Serif Display", serif;
+
+    }
+
+    .special-header p {
+      color: #666;
+      font-size: 1.5rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .special-cards-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      flex-wrap: wrap;
+      margin-top: 50px;
+    }
+
+    .special-card {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      /* border: 1px solid #000; */
+      max-width: 450px;
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+    }
+
+    .special-card:hover {
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    }
+
+
+
+    .special-number {
+      font-size: 1.2rem;
+      font-weight: bold;
+      position: relative;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    .special-number::after {
+      content: "";
+      display: inline-block;
+      width: 50px;
+      height: 2px;
+      background-color: black;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+
+    .special-title {
+      font-size: 1.5rem;
+      margin: 5px 0 10px;
+      font-family: "DM Serif Display", serif;
+    }
+
+    .special-title span {
+      color: orange;
+    }
+
+    .special-description {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .special-price {
+      font-weight: bold;
+      color: orange;
+      margin-bottom: 10px;
+    }
+
+    .special-book-link {
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      font-weight: bold;
+      color: black;
+      text-decoration: none;
+      margin-bottom: 15px;
+    }
+
+    .special-img {
+      width: 400px;
+      height: 280px;
+      border-radius: 5px;
+      /* margin-top: auto; */
+    }
+
+    @media (max-width: 768px) {
+      .special-cards-wrapper {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    .testimonial {
+      background-image: url(assets/testimonial-bg.jpg);
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 35vh;
+      color: white;
+      /* Optional: if your text is on top */
+      overflow: hidden;
+    }
+
+    .testimonial::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      /* ✅ light black overlay */
+      z-index: 1;
+    }
+
+    .test {
+      color: orange;
+    }
+
+    .testimonial h3 {
+      position: relative;
+      z-index: 2;
+      padding: 100px 20px;
+      text-align: center;
+      font-size: 2.5rem;
+      font-family: "DM Serif Display", serif;
+      margin-bottom: 5px;
+    }
+
+    .testimonial p {
+      position: relative;
+      bottom: 90px;
+      z-index: 3;
+      /* padding: 100px 20px; */
+      text-align: center;
+      font-size: 17px;
+      font-family: "DM Serif Display", serif;
+      /* margin-bottom:30px;  */
+    }
+
+    .food-update-section {
+      /* padding:  20px; */
+      padding-bottom:250px;
+      background-color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      /* overflow:hidden; */
+      position: relative;
+      z-index: 0;
+      margin-bottom: 200px;
+    }
+.food-update-section {
+  padding-bottom: 100px;
+  background-color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  position: relative;
+  z-index: 0;
+}
+
+.container-a {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  font-family: "DM Serif Display", serif;
+}
+
+.section-header h2 span {
+  color: orange;
+  font-style: italic;
+}
+
+.section-header p {
+  font-size: 14px;
+  color: #555;
+  font-style: italic;
+}
+
+.food-cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 30px;
+  overflow-x: auto;
+}
+
+.food-card {
+  flex: 0 0 32%;
+  background-color: #f9f9ff;
+  border-radius: 5px;
+  padding: 15px;
+  transition: box-shadow 0.3s ease;
+}
+
+.food-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #888;
+  margin: 10px 0;
+}
+
+.food-card h4 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0 5px;
+}
+
+.food-card p {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.read-more {
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: black;
+}
+
+
+.book-table-section {
+  background: url('assets/book-table-bg.jpg') center center/cover no-repeat;
+  width: 100%;
+  height: auto;
+  padding: 100px 20px 60px;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  z-index: 0;
+  font-family: "DM Serif Display", serif;
+  font-style: italic;
+  overflow-x: hidden;
+  margin-top:0;
+  
+}
+
+
+    .book-table-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+
+    section {
+      margin-bottom: 60px;
+    }
+
+
+    .book-table-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.book-table-content h2 {
+  font-size: 53px;
+  margin-bottom: 10px;
+}
+
+.book-table-content p {
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.booking-form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.booking-form input,
+.booking-form button {
+  padding: 12px 15px;
+  font-size: 14px;
+  border: none;
+  width: 200px;
+}
+
+.booking-form button {
+  background-color: #ffb03b;
+  color: #000;
+  cursor: pointer;
+  width: auto;
+  margin-top: 25px;
+}
+
+.booking-form button:hover {
+  background-color: transparent;
+  border: 1px solid orange;
+  color: white;
+}
+
+
+    /* Footer Styles */
+    .site-footer {
+      background-color: #0d0d2b;
+      color: #fff;
+      /* padding: 60px 20px 20px; */
+      font-family: Arial, sans-serif;
+      position: relative;
+      z-index: 0;
+      margin-top: 0;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .footer-box {
+      flex: 1 1 300px;
+      margin: 20px;
+    }
+
+    .footer-box h4 {
+      color: #ffb03b;
+      margin-bottom: 10px;
+      font-family: "DM Serif Display", serif;
+      font-style: italic;
+      font-size: 29px;
+    }
+
+    .footer-box p {
+      color: #aaa;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .food-update-section {
+  background-color: #f8f9fa;
+}
+.section-header p {
+  font-size: 1rem;
+  color: #666;
+}
+.card-title {
+  font-size: 1.25rem;
+}
+.card-text {
+  font-size: 0.9rem;
+}
+
+
+    /* 
+    .logo {
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      color:white;
+    } */
+
+    .footer-bottom {
+      border-top: 1px solid #1c1c3b;
+      text-align: center;
+      padding: 20px 10px 10px;
+      font-size: 13px;
+      color: #fffbfb;
+    }
+
+    .footer-bottom a {
+      color: #4fc3f7;
+      text-decoration: none;
+    }
+
+    .social-icons span {
+      margin: 0 5px;
+      color: #fff;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-box {
+        text-align: center;
+        margin: 20px 0;
+      }
+
+      .logo {
+        justify-content: center;
+      }
+
+      .booking-form {
+        /* flex-direction: row; */
+        align-items: center;
+        display: flex;
+      }
+
+      .booking-form input {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+
+    .footer-logo {
+      height: 60px;
+      filter: brightness(5);
+      margin: 10px 0;
+    }
+
+    .footer-logo:hover {
+      filter: brightness(2.5) drop-shadow(0 0 10px rgb(141, 19, 19));
+      transition: 0.3s ease;
+    }
+    /* .Name{
+      margin-right:10px !important;
+      position:relative;
+      right:60px;
+      height: 45px;
+    }
+
+    .table{
+      margin-right:100px !important;
+      position:relative !important;
+      /* right:100px !important; */
+
+    body {
+  overflow-x: hidden;
+}
+
+  </style>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg fixed-top bg-transparent px-4">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="assets/logo.png.webp" alt="Logo" height="60">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto gap-3">
+        <li class="nav-item"><a class="nav-link" href="#">HOME</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">ABOUT</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">MENU</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">BLOG</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Blog Home</a></li>
+            <li><a class="dropdown-item" href="#">Blog Details</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#">CONTACT</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">ELEMENTS</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <section class="hero">
+    <p>THE MOST INTERESTING FOOD IN THE WORLD</p>
+    <h2>Discover the <span>flavours</span><br>of <span>foodfun</span></h2>
+  </section>
+
+  <section class="welcome-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <img src="assets/welcome-bg.png" alt="Food Image">
+        </div>
+        <div class="col-lg-6">
+          <h2><span class="welcome">welcome</span><br> to food fun</h2>
+          <p>Created god gathered don’t you yielding herb you had. And isn’t, god was saw. Dominion. Great
+            sixth for in unto was. Open can’t tree am waters brought. Divide after there. Was.</p>
+          <p>Created god gathered don’t you yielding herb you had. And isn’t, god was saw. Dominion. Great
+            sixth for in unto was. Open can’t tree waters brought. Divide after there. Was. Created god
+            gathered don’t you yielding herb you had. And isn’t god.</p>
+          <button class="btn">BOOK A TABLE</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="menu">
+    <h3><span>we serve</span><br> delicious food</h3>
+    <p>They're fill divide i their yielding our after have him fish on there for<br> greater man moveth, moved Won't
+      together isn't for fly divide mids fish <br>firmament on net</p>
+    <div class="food-menu py-5">
+      <div class="container">
+        <div class="row g-4">
+          <!-- CARD 1 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="card food-card h-100 shadow-sm">
+              <div class="card-img-container">
+                <img src="assets/food1.jpg" class="card-img-top" alt="Dish 1">
+              </div>
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <h5 class="card-title mb-0">Grilled Chicken</h5>
+                  <span class="price">$12</span>
+                </div>
+                <p class="card-text">Succulent grilled chicken served with fresh veggies and special sauce.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- CARD 2 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="card food-card h-100 shadow-sm">
+              <div class="card-img-container">
+                <img src="assets/food2.jpg" class="card-img-top" alt="Dish 2">
+              </div>
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <h5 class="card-title mb-0">Pasta Delight</h5>
+                  <span class="price">$10</span>
+                </div>
+                <p class="card-text">Classic pasta with rich tomato sauce and parmesan cheese.</p>
+              </div>
+            </div>
+          </div>
+          <!-- CARD 3 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="card food-card h-100 shadow-sm">
+              <div class="card-img-container">
+                <img src="assets/food3.jpg" class="card-img-top" alt="Dish 3">
+              </div>
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <h5 class="card-title mb-0">Veggie Salad</h5>
+                  <span class="price">$8</span>
+                </div>
+                <p class="card-text">A healthy mix of greens, avocado, and our signature dressing.</p>
+              </div>
+            </div>
+          </div>
+          <!-- CARD 4 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="card food-card h-100 shadow-sm">
+              <div class="card-img-container">
+                <img src="assets/food4.jpg" class="card-img-top" alt="Dish 4">
+              </div>
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <h5 class="card-title mb-0">Beef Steak</h5>
+                  <span class="price">$15</span>
+                </div>
+                <p class="card-text">Juicy beef steak cooked to perfection with herb butter.</p>
+              </div>
+            </div>
+          </div>
+          <!-- CARD 5 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="card food-card h-100 shadow-sm">
+              <div class="card-img-container">
+                <img src="assets/food5.jpg" class="card-img-top" alt="Dish 5">
+              </div>
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <h5 class="card-title mb-0">Seafood Platter</h5>
+                  <span class="price">$18</span>
+                </div>
+                <p class="card-text">An assortment of fresh seafood with a tangy dip.</p>
+              </div>
+            </div>
+          </div>
+          <!-- CARD 6 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="card food-card h-100 shadow-sm">
+              <div class="card-img-container">
+                <img src="assets/food6.jpg" class="card-img-top" alt="Dish 6">
+              </div>
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <h5 class="card-title mb-0">Cheesy Pizza</h5>
+                  <span class="price">$11</span>
+                </div>
+                <p class="card-text">Thin crust pizza loaded with cheese and toppings of your choice.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reserve">
+    <h2>Natural ingredients and testy food</h2>
+    <p>some trendy and popular courses offerd</p>
+    <button class="btn">RESERVATION</button>
+  </section>
+
+  <!-- SPECIAL DISHES SECTION (Scoped & Conflict-Free) -->
+  <section id="special-dishes">
+    <div class="special-header text-center">
+      <h2>Our <span>special</span> dishes</h2>
+      <p>Beast kind form divide night above let moveth bearing darkness.</p>
+    </div>
+
+    <div class="special-cards-wrapper">
+      <!-- Card 01 -->
+      <div class="special-card" data-aos="fade-up" data-aos-duration="1000">
+        <div class="special-number">01.</div>
+        <h3 class="special-title"><span>Garlic</span> green beans</h3>
+        <p class="special-description">
+          Be. Seed saying our signs beginning face give spirit own beast darkness morning moveth green multiply shed
+          kind saying one shall, two, which darkness have day image god their night. His subdue so you rule can.
+        </p>
+        <div class="special-price">$12.00</div>
+        <a class="special-book-link" href="#">BOOK A TABLE →</a>
+        <img src="assets/dishs1.jpg" alt="Garlic Green Beans" class="special-img">
+      </div>
+
+      <!-- Card 02 -->
+      <div class="special-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+        <img src="assets/food2.jpg"alt="Lemon Rosemary Chicken" class="special-img">
+        <div class="special-number">02.</div>
+        <h3 class="special-title"><span>Lemon</span> rosemary chicken</h3>
+        <p class="special-description">
+          Be. Seed saying our signs beginning face give spirit own beast darkness morning moveth green multiply shed
+          kind saying one shall, two, which darkness have day image god their night. His subdue so you rule can.
+        </p>
+        <div class="special-price">$12.00</div>
+        <a class="special-book-link" href="#">BOOK A TABLE →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonial">
+    <h3>Customer <span class="test">says</span> </h3>
+    <p>Beast kind form divide night above let moveth bearing darkness.</p>
+  </section>
+
+
+  <section class="food-update-section">
+  <div class="container-a">
+    <div class="section-header">
+      <h2>Our <span>food</span> update</h2>
+      <p>Beast kind form divide night above let moveth bearing darkness.</p>
+    </div>
+
+    <div class="food-cards">
+      <!-- Card 1 -->
+      <div class="food-card">
+        <img src="assets/update1.jpg" alt="Burger">
+        <div class="meta">
+          <span>👤 Admin</span>
+          <span>📅 18/09/2018</span>
+        </div>
+        <h4>No Finer Food Can Be Found</h4>
+        <p>nancy boy off his nut so I said chimney pot be James Bond aking cakes he.</p>
+        <a href="#" class="read-more">READ MORE →</a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="food-card">
+        <img src="assets/update2.jpg" alt="Sandwich">
+        <div class="meta">
+          <span>👤 Admin</span>
+          <span>📅 20/09/2018</span>
+        </div>
+        <h4>Things Go Better With Food</h4>
+        <p>nancy boy off his nut so I said chimney pot be James Bond aking cakes he.</p>
+        <a href="#" class="read-more">READ MORE →</a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="food-card">
+        <img src="assets/update3.jpg" alt="Steak">
+        <div class="meta">
+          <span>👤 Admin</span>
+          <span>📅 22/09/2018</span>
+        </div>
+        <h4>Food Head Above The Rest</h4>
+        <p>nancy boy off his nut so I said chimney pot be James Bond aking cakes he.</p>
+        <a href="#" class="read-more">READ MORE →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Book a Table Section -->
+  <section class="book-table-section">
+    <div class="container">
+      <div class="book-table-content">
+        <h2>Book your <span>table</span></h2>
+        <p>Best kind farm divide night above let moveth bearing darkness.</p>
+        <form class="booking-form">
+          <input type="date" placeholder="Date">
+          <input type="time" placeholder="Time">
+          <input type="text" placeholder="Name" class="Name">
+          <br><br>
+          <button type="submit" class="table">BOOK A TABLE</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <!-- Logo & Description -->
+      <div class="footer-box">
+        <h2 class="footer-logo"><img src="assets/logo.png.webp" alt=""></h2>
+        <p>
+          Which morning fourth great won’t to fly by bearing man. Called unto shall seed, deep, herb set dead land
+          divide after over first creeping.
+        </p>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-box">
+        <h4>Contact Us</h4>
+        <p>1234 Some St San Francisco, CA 94102, US</p>
+        <p>1.800.123.4567</p>
+        <p>support@companyname.com</p>
+      </div>
+
+      <!-- Opening Hours -->
+      <div class="footer-box">
+        <h4>Opening Hours</h4>
+        <p>Monday ..................... Closed</p>
+        <p>Tue-Fri ...................... 10 am - 12 pm</p>
+        <p>Sat-Sun .................... 8 am - 11 pm</p>
+        <p>Holidays ................... 10 am - 12 pm</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>Copyright &copy;2025 All rights reserved | This template is made with 💙 by
+        <a href="#">Hiba Saleem</a>
+      </p>
+      <p class="social-icons">
+        Follow us:
+        <span><i class="fa-brands fa-facebook fa-beat"></i></span>
+        <span><i class="fa-brands fa-twitter fa-beat"></i></span>
+        <span><i class="fa-brands fa-google-plus-g fa-beat"></i></span>
+        <span><i class="fa-brands fa-pinterest fa-beat"></i></span>
+        <span><i class="fa-brands fa-square-instagram fa-beat"></i></span>
+      </p>
+    </div>
+  </footer>
+
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+</html>
